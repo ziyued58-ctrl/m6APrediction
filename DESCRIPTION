@@ -1,0 +1,23 @@
+Package: m6APrediction
+Title: Predict m6A Sites Using a Random Forest Model
+Version: 0.0.0.9000
+Authors@R:
+    person("Ziyue", "Ding",
+           email = "3569776901@qq.com",
+           role = c("aut", "cre"))
+Description: Provides functions for predicting N6-methyladenosine
+    (m6A) sites using a fitted random forest classifier. DNA sequences
+    are encoded as nucleotide-position categorical factors. Batch and
+    single-observation prediction functions return positive-class
+    probabilities and classification results using a user-defined
+    decision threshold. Includes a fitted model and example input data
+    for demonstrating the prediction workflow.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends:
+    R (>= 3.5.0)
+Imports:
+    randomForest,
+    stats
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
