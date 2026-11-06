@@ -160,3 +160,38 @@ BIO215 Practical 6 materials and reused without retraining.
 
 See `LICENSE` and `LICENSE.md` for the package code's MIT license.
 The bundled course resources remain subject to their original terms.
+## Model performance: out-of-bag evaluation
+
+The bundled random forest was evaluated using its stored out-of-bag
+(OOB) positive-class vote fractions. Each observation's OOB score uses
+only trees whose bootstrap training samples excluded that observation.
+No model retraining was performed.
+
+The evaluation included 48,055 observations: 11,248 Positive and
+36,807 Negative, with a positive-class prevalence of 23.41%.
+
+| Metric | OOB result |
+|---|---:|
+| ROC AUC | 0.8873 |
+| Average precision (AP) | 0.7022 |
+
+### ROC curve
+
+![OOB ROC curve](man/figures/roc_oob.png)
+
+The ROC curve shows sensitivity against the false positive rate across
+decision thresholds. The dashed diagonal represents chance discrimination.
+
+### Precision-recall curve
+
+![OOB precision-recall curve](man/figures/pr_oob.png)
+
+The precision-recall curve shows the trade-off between precision and
+recall. The dashed horizontal line marks the positive-class prevalence
+(0.2341). Average precision was calculated as the recall-increment-weighted
+mean of precision, grouping observations with tied scores.
+
+These results describe internal OOB performance, not performance on an
+independent external test set. They do not establish generalisation to
+new biological datasets. The bundled 100-row example table is used only
+to demonstrate package functionality and was not used for this evaluation.
